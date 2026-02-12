@@ -1,0 +1,13 @@
+<!-- templates/edit_notice.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Edit Notice</title></head>
+<body>
+    <h2>Edit Notice</h2>
+    <form method="post">
+        <textarea name="content" rows="10" cols="60">{{ content }}</textarea><br>
+        <button type="submit">Update</button>
+    </form>
+    <p><a href="{{ url_for('dashboard') }}">← Back to Dashboard</a></p>
+</body>
+</html>

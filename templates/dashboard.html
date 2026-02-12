@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h1>Welcome, {{ session['username'] }} ({{ session['role'] }})</h1>
+
+    <div class="dashboard-cards">
+        <a href="{{ url_for('edit_notice') }}" class="card">📢 Manage Notice</a>
+        <a href="{{ url_for('manage_events') }}" class="card">📅 Manage Events</a>
+        <a href="{{ url_for('search_member') }}" class="card">👥 View Members</a>
+        <a href="{{ url_for('view_feedbacks') }}" class="card">💬 View Feedbacks</a>
+    </div>
+
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+</div>
+
+</body>
+</html>

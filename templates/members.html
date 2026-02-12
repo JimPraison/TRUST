@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trust Members</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f6f9;
+        }
+
+        .container {
+            width: 95%;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 align="center">Trust Members</h2>
+
+    <table>
+        <tr>
+            <th>S.No</th>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Position</th>
+            <th>DOB</th>
+            <th>Phone</th>
+            <th>Address</th>
+        </tr>
+
+        {% for member in members %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>
+                <img src="{{ url_for('static', filename=member.photo) }}" alt="Photo">
+            </td>
+            <td>{{ member.name }}</td>
+            <td>{{ member.age }}</td>
+            <td>{{ member.position }}</td>
+            <td>{{ member.DOB }}</td>
+            <td>{{ member.phone }}</td>
+            <td>{{ member.address }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>

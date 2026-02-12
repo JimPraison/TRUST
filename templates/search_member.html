@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Member</title>
+</head>
+<body>
+
+<h2>Search Member by Name</h2>
+
+<form method="POST">
+    Name: <input type="text" name="name" required>
+    <input type="submit" value="Search">
+</form>
+
+{% if member %}
+    <h3>Member Details</h3>
+    <ul>
+        {% if member.photo %}
+        <img src="{{ url_for('static', filename=member.photo) }}" width="150">
+        {% endif %}
+        <li><strong>ID:</strong> {{ member.id }}</li>
+        <li><strong>Name:</strong> {{ member.name }}</li>
+        <li><strong>DOB:</strong> {{ member.DOB }}</li>
+        <li><strong>Age:</strong> {{ member.age }}</li>
+        <li><strong>Position:</strong> {{ member.position }}</li>
+        <li><strong>Phone:</strong> {{ member.phone }}</li>
+        <li><strong>Address:</strong> {{ member.address }}</li>
+        <li><strong>Father Name:</strong> {{ member.father_name }}</li>
+        <li><strong>Work:</strong> {{ member.work }}</li>
+        <li><strong>Aadhar Number:</strong> {{ member.aadhar_number }}</li>
+        <li><strong>Blood Group:</strong> {{ member.blood_group }}</li>
+        <li><strong>Anniversary Date:</strong> {{ member.anniversary_date }}</li>
+    </ul>
+
+{% elif member is not none %}
+    <p style="color:red;">No member found with that name.</p>
+{% endif %}
+
+</body>
+</html>

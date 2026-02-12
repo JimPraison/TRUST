@@ -1,0 +1,25 @@
+<h2 style="text-align:center;">All Feedbacks</h2>
+
+<div class="table-container">
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Date</th>
+    </tr>
+
+    {% for fb in feedbacks %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ fb.name }}</td>
+        <td>{{ fb.email }}</td>
+        <td>{{ fb.message }}</td>
+        <td>{{ fb.created_at.strftime('%d-%m-%Y %I:%M %p') }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+
+<a href="{{ url_for('dashboard') }}" class="back-btn">Back</a>

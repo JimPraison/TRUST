@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback</title>
+</head>
+<body>
+
+<h2>Submit Your Feedback</h2>
+
+<form method="POST" action="{{ url_for('submit_feedback') }}">
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Message:</label><br>
+    <textarea name="message" rows="5" cols="40" required></textarea><br><br>
+
+    <input type="submit" value="Submit Feedback">
+</form>
+
+{% if success %}
+<div style="color:green;">Thank you for your feedback!</div>
+{% endif %}
+
+<br>
+<a href="{{ url_for('home') }}">Back to Home</a>
+
+</body>
+</html>
